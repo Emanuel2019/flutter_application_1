@@ -1,73 +1,22 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(Appwidget(
+    title: 'Flutterando 3...',
+  ));
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
+class Appwidget extends StatelessWidget {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        
-        primarySwatch: Colors.red,
-      ),
-      home: const MyHomePage(title: 'Calculadora'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
   final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-  
-  void _incrementCounter() {
-    setState(() {
-    
-      _counter++;
-    });
-  }
-
-  @override
+  const Appwidget({super.key, required this.title});
   Widget build(BuildContext context) {
- 
-    return Scaffold(
-      appBar: AppBar(
-       
-        title: Text(widget.title),
+    
+    return MaterialApp(
+      theme: ThemeData(primarySwatch: Colors.red),
+      home: Container(
+        child: Center(child: Text('Flutterando'))
       ),
-      body: Center(
-       
-        child: Column(
-       
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'Clique neste botão contar :',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
-  }
+  } 
 }
