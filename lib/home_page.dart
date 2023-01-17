@@ -24,6 +24,11 @@ class HomePageState extends State<HomePage> {
           children: [
             Text('Contador:$counter'),
             CustomSwitch()
+            Row(
+              children: [
+                
+              ],
+            )
           ],
         ),
       ),
