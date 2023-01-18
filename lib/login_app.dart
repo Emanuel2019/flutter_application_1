@@ -1,6 +1,9 @@
 import 'dart:html';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/login_page.dart';
+
+import 'home_page.dart';
 
 class MyLoginApp extends StatelessWidget {
   const MyLoginApp({Key? key}) : super(key: key);
@@ -63,7 +66,7 @@ class _MyStateLoginApp extends State<MyStateLoginApp> {
             padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
             child: TextField(
                 obscureText: true,
-                controller: nameController,
+                controller: passwordController,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Password',
@@ -77,20 +80,26 @@ class _MyStateLoginApp extends State<MyStateLoginApp> {
             child: ElevatedButton(
                 child: const Text('Login'),
                 onPressed: (() {
-                  print(nameController.text);
-                  print(passwordController.text);
+                  if (nameController == "emanuel" &&
+                      passwordController == "12345678") {
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => HomePage()));
+                  } else {
+                     Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => LoginPage())); 
+                  }
                 })),
           ),
           Row(
-            children:<Widget> [
-const Text('Ainda tenho uma conta'),
-TextButton(child: const Text('Registar',
-style: TextStyle(fontSize: 20),
-),
-onPressed:() {
-  
-},)
-
+            children: <Widget>[
+              const Text('Ainda tenho uma conta'),
+              TextButton(
+                child: const Text(
+                  'Registar',
+                  style: TextStyle(fontSize: 20),
+                ),
+                onPressed: () {},
+              )
             ],
             mainAxisAlignment: MainAxisAlignment.center,
           ),

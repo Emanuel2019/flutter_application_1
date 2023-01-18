@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'home_page.dart';
+
 class LoginPage extends StatefulWidget {
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -60,7 +62,7 @@ class _LoginPageState extends State<LoginPage> {
                 onPressed: () {
                   if (email == "emanuelngola33@gmail.com" &&
                       password == "12345678") {
-                    print('Seja Benvindo ao crm');
+                    Navigator.of(context).pushNamed('/home');
                   } else {
                     print("Utilizador não registado no crm");
                   }

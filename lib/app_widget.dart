@@ -14,7 +14,10 @@ class Appwidget extends StatelessWidget {
       theme: ThemeData(primarySwatch: Colors.red,
       brightness: AppController.instance.isDartTheme? Brightness.dark:Brightness.light
       ),
-      home: LoginPage(),
+    routes: {
+      '/':(context)=>LoginPage(),
+      '/home':(context)=>HomePage(),
+    },
     );
     });
     
